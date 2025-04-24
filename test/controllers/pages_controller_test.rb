@@ -21,4 +21,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "link[rel='stylesheet'][href*='app']"
     assert_select "script[src*='application']"
   end
-end 
+end
