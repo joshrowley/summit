@@ -1,34 +1,23 @@
-<div class="min-h-screen bg-gradient-to-b from-[#FFF5EB] to-[#E6EEF2] relative overflow-hidden">
-  <!-- Navigation -->
-  <nav class="absolute top-0 right-0 p-8">
-    <div class="space-x-8">
-      <a href="/login" class="text-gray-800 hover:text-gray-600 transition">Log in</a>
-      <a href="/signup" class="text-gray-800 hover:text-gray-600 transition">Sign up</a>
+<div class="min-h-screen flex flex-col justify-between bg-gradient-to-b from-slate-100 to-slate-300 text-slate-800 relative overflow-hidden">
+  <%= image_tag "background-mountains.png", alt: "Mountains", class: "absolute inset-0 w-full h-full object-cover z-0 opacity-60" %>
+  
+  <header class="relative z-10 flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-2">
+      <span class="text-2xl font-semibold">&#9651; Summit</span>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <div class="flex flex-col items-center justify-center min-h-screen relative z-10 px-4">
-    <!-- Logo and Title -->
-    <div class="text-center mb-6">
-      <div class="mb-4">
-        <svg class="w-16 h-16 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3L22 18H2L12 3Z" fill="currentColor"/>
-        </svg>
-      </div>
-      <h1 class="text-5xl font-bold text-gray-900 mb-4">Summit</h1>
-      <p class="text-2xl text-gray-700 mb-8">A personal compass for life</p>
+    <div class="space-x-4">
+      <a href="#" class="text-sm hover:underline">Log in</a>
+      <a href="#" class="text-sm hover:underline">Sign up</a>
     </div>
+  </header>
 
-    <!-- CTA Button -->
-    <a href="/signup" class="bg-[#2B4C6F] text-white px-8 py-3 rounded-lg text-xl hover:bg-[#1E3A5F] transition duration-300 shadow-lg">
-      Get Started
-    </a>
-  </div>
+  <main class="relative z-10 flex flex-col items-center justify-center text-center px-4 py-16">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">A personal compass for life</h1>
+    <p class="text-lg mb-8">Track your health, habits, and happiness with clarity.</p>
+    <a href="#" class="bg-blue-800 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition">Get Started</a>
+  </main>
 
-  <!-- Background Mountains -->
-  <div class="absolute bottom-0 left-0 right-0 h-[60vh] pointer-events-none">
-    <!-- Mountains SVG will be added in a separate file -->
-    <%= render "shared/mountains" %>
-  </div>
-</div> 
+  <footer class="relative z-10 text-center text-sm text-slate-500 py-4">
+    &copy; <%= Time.current.year %> Summit. All rights reserved.
+  </footer>
+</div>
