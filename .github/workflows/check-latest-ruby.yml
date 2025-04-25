@@ -19,7 +19,7 @@ jobs:
       - name: Fetch latest stable Ruby version
         id: latest_version
         run: |
-          latest=$(curl -s https://raw.githubusercontent.com/postmodern/ruby-versions/master/ruby/stable.txt | head -n 1)
+          latest=$(curl -s https://raw.githubusercontent.com/postmodern/ruby-versions/master/ruby/stable.txt | tail -n 1)
           echo "version=$latest" >> $GITHUB_OUTPUT
 
       - name: Compare versions
