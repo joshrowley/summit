@@ -45,17 +45,19 @@ class LandingPagesTest < ApplicationSystemTestCase
   test "navigation functionality" do
     visit root_url
 
-    # Test login link - for now, it should stay on the same page
+    # Test login link
     click_on "Log in"
-    assert_current_path "/"
+    assert_current_path new_user_session_path
 
-    # Test signup link - for now, it should stay on the same page
+    # Test signup link
+    visit root_url
     click_on "Sign up"
-    assert_current_path "/"
+    assert_current_path new_user_registration_path
 
-    # Test CTA button - for now, it should stay on the same page
+    # Test CTA button
+    visit root_url
     click_on "Get Started"
-    assert_current_path "/"
+    assert_current_path new_user_registration_path
   end
 
   private
