@@ -4,12 +4,12 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include Devise::Test::IntegrationHelpers
 
   if ENV["CI"]
-    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400] do |options|
+    driven_by :selenium, using: :headless_chrome, screen_size: [ 1400, 1400 ] do |options|
       options.add_argument("--no-sandbox")
       options.add_argument("--disable-dev-shm-usage")
       options.add_argument("--user-data-dir=#{Dir.tmpdir}/chrome_#{Process.pid}")
     end
   else
-    driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+    driven_by :selenium, using: :chrome, screen_size: [ 1400, 1400 ]
   end
 end
