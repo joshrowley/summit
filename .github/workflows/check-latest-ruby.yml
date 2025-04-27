@@ -1,0 +1,32 @@
+name: Check Latest Ruby Version
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-ruby-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Ruby version from .ruby-version
+        id: local_version
+        run: echo "version=$(cat .ruby-version)" >> $GITHUB_OUTPUT
+
+      - name: Fetch latest stable Ruby version
+        id: latest_version
+        run: |
+          latest=$(curl -s https://raw.githubusercontent.com/postmodern/ruby-versions/master/ruby/stable.txt | tail -n 1)
+          echo "version=$latest" >> $GITHUB_OUTPUT
+
+      - name: Compare versions
+        run: |
+          echo "Local Ruby: ${{ steps.local_version.outputs.version }}"
+          echo "Latest Ruby: ${{ steps.latest_version.outputs.version }}"
+          if [ "${{ steps.local_version.outputs.version }}" != "${{ steps.latest_version.outputs.version }}" ]; then
+            echo "Error: Ruby version is not up to date."
+            exit 1
+          fi 
