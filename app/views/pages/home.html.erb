@@ -6,15 +6,22 @@
       <span class="text-2xl font-semibold">&#9651; Summit</span>
     </div>
     <div class="space-x-4">
-      <a href="#" class="text-sm hover:underline">Log in</a>
-      <a href="#" class="text-sm hover:underline">Sign up</a>
+      <% if user_signed_in? %>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm">Welcome, <%= current_user.email %></span>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "text-sm hover:underline bg-transparent border-none p-0 cursor-pointer" %>
+        </div>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "text-sm hover:underline" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "text-sm hover:underline" %>
+      <% end %>
     </div>
   </header>
 
   <main class="relative z-10 flex flex-col items-center justify-center text-center px-4 py-16">
     <h1 class="text-4xl sm:text-5xl font-bold mb-4">A personal compass for life</h1>
     <p class="text-lg mb-8">Track your health, habits, and happiness with clarity.</p>
-    <a href="#" class="bg-blue-800 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition">Get Started</a>
+    <%= link_to "Get Started", new_user_registration_path, class: "bg-blue-800 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition" %>
   </main>
 
   <footer class="relative z-10 text-center text-sm text-slate-500 py-4">
