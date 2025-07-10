@@ -28,6 +28,8 @@ class AuthenticationTest < ApplicationSystemTestCase
     visit root_path
     click_link "Sign up"
 
+    # The input name is likely 'user[email]' due to Devise's form builder
+    assert_selector "input[name='user[email]']"
     fill_in "Email", with: @unauthorized_email
     fill_in "Password", with: @password
     fill_in "Password confirmation", with: @password
