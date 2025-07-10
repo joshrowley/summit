@@ -3,7 +3,7 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
   def setup
     User.destroy_all
-    @authorized_email = "joshua.f.rowley@gmail.com"
+    @authorized_email = ENV["AUTHORIZED_EMAIL"] || "authorized@example.com"
     @unauthorized_email = "other@example.com"
     @password = "password123"
   end

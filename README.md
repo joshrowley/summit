@@ -39,23 +39,33 @@ Summit is a Rails application designed to help users track and improve their per
    cd summit
    ```
 
-2. **Install Ruby dependencies**
+2. **Set the authorized email**
+   
+   The application restricts registration to a specific email address for security. Set the `AUTHORIZED_EMAIL` environment variable to your authorized email address:
+   
+   ```bash
+   export AUTHORIZED_EMAIL="your@email.com"
+   ```
+   
+   You can add this to your shell profile or a `.env` file if using a tool like dotenv.
+
+3. **Install Ruby dependencies**
    ```bash
    bundle install
    ```
 
-3. **Install JavaScript dependencies**
+4. **Install JavaScript dependencies**
    ```bash
    pnpm install
    ```
 
-4. **Set up the database**
+5. **Set up the database**
    ```bash
    rails db:create
    rails db:migrate
    ```
 
-5. **Start the development server**
+6. **Start the development server**
    ```bash
    bin/dev
    ```
@@ -112,7 +122,7 @@ The application uses Devise for user authentication with the following features:
 - Remember me functionality
 - Secure password hashing with bcrypt
 
-**Note**: Currently, user registration is restricted to a specific email address for controlled access.
+**Note**: Registration is restricted to the email address specified in the `AUTHORIZED_EMAIL` environment variable. If not set, it defaults to `authorized@example.com`.
 
 ## Project Structure
 
@@ -201,7 +211,7 @@ rails test:all
 
 ## License
 
-This project is private and proprietary. All rights reserved.
+See [LICENSE](LICENSE) for details. This project is provided for personal and educational purposes only. Commercial use is prohibited without explicit permission from the author.
 
 ## Support
 
