@@ -9,7 +9,9 @@ class User < ApplicationRecord
   private
 
   def restrict_email_domain
-    unless email == "joshua.f.rowley@gmail.com"
+    # Set the authorized email in ENV['AUTHORIZED_EMAIL']
+    authorized_email = ENV["AUTHORIZED_EMAIL"] || "authorized@example.com"
+    unless email == authorized_email
       errors.add(:email, "is not authorized to sign up")
     end
   end
