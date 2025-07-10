@@ -1,0 +1,34 @@
+name: Check Latest Rails Version
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-rails-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Get current Rails version from Gemfile.lock
+        id: current
+        run: |
+          current_rails=$(grep '    rails (' Gemfile.lock | sed 's/    rails (//;s/)//')
+          echo "current_rails=$current_rails" >> $GITHUB_OUTPUT
+
+      - name: Fetch latest Rails version from RubyGems
+        id: latest
+        run: |
+          latest_rails=$(curl -s https://rubygems.org/api/v1/versions/rails/latest.json | jq -r .version)
+          echo "latest_rails=$latest_rails" >> $GITHUB_OUTPUT
+
+      - name: Compare versions
+        run: |
+          echo "Current Rails: ${{ steps.current.outputs.current_rails }}"
+          echo "Latest Rails: ${{ steps.latest.outputs.latest_rails }}"
+          if [ "${{ steps.current.outputs.current_rails }}" != "${{ steps.latest.outputs.latest_rails }}" ]; then
+            echo "::error ::Rails version is outdated. Please update to the latest version."
+            exit 1
+          fi 
