@@ -13,3 +13,26 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:foursquare] = OmniAuth::AuthHash.new(
+  provider: 'foursquare',
+  uid: '12345',
+  info: {
+    firstName: 'Test',
+    lastName: 'User',
+    photo: 'http://example.com/photo.jpg'
+  },
+  credentials: {
+    token: 'mock_token',
+    expires: false
+  },
+  extra: {
+    raw_info: {
+      id: '12345',
+      firstName: 'Test',
+      lastName: 'User',
+      photo: 'http://example.com/photo.jpg'
+    }
+  }
+)

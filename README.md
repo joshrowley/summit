@@ -238,3 +238,23 @@ For support or questions, please contact the development team or create an issue
 ---
 
 Built with ❤️ using Rails 8 and modern web technologies.
+
+## Swarm (Foursquare) OAuth Setup
+
+To enable Swarm check-in import, set the following environment variables in your shell or a `.env` file:
+
+```
+FOURSQUARE_CLIENT_ID=your_client_id
+FOURSQUARE_CLIENT_SECRET=your_client_secret
+FOURSQUARE_REDIRECT_URI=http://localhost:3000/auth/foursquare/callback
+```
+
+Register your app at https://foursquare.com/developers/apps to obtain these credentials.
+
+To start the OAuth flow, visit:
+
+```
+http://localhost:3000/auth/foursquare
+```
+
+After authorizing, you will see your access token and user info for validation.
