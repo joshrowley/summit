@@ -4,7 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def foursquare
-    auth = request.env['omniauth.auth']
+    auth = request.env["omniauth.auth"]
     # For now, just display the token and user info for validation
     render inline: <<-ERB
       <h1>Foursquare OAuth Success</h1>
@@ -19,4 +19,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       <p><%= params[:message] %></p>
     ERB
   end
-end 
+end
