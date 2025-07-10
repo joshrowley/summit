@@ -26,8 +26,8 @@
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="<%= image_path('favicons/summit_favicon-192x192.png') %>">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%# Include compiled CSS and JS assets %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 

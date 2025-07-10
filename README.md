@@ -16,7 +16,7 @@ Summit is a Rails application designed to help users track and improve their per
 
 ## Tech Stack
 
-- **Ruby**: 3.4.3
+- **Ruby**: 3.4.4
 - **Rails**: 8.0.2
 - **Database**: PostgreSQL
 - **Frontend**: Tailwind CSS, JavaScript (esbuild)
@@ -26,10 +26,10 @@ Summit is a Rails application designed to help users track and improve their per
 
 ## Prerequisites
 
-- Ruby 3.4.3
+- Ruby 3.4.4
 - Node.js (for asset compilation)
 - PostgreSQL
-- Yarn package manager
+- pnpm package manager
 
 ## Installation
 
@@ -46,7 +46,7 @@ Summit is a Rails application designed to help users track and improve their per
 
 3. **Install JavaScript dependencies**
    ```bash
-   yarn install
+   pnpm install
    ```
 
 4. **Set up the database**
@@ -81,13 +81,13 @@ rails test test/models/user_test.rb
 
 ```bash
 # Compile JavaScript assets
-yarn build
+pnpm build
 
 # Compile CSS assets
-yarn build:css
+pnpm build:css
 
 # Watch for changes during development
-yarn build --watch
+pnpm build --watch
 ```
 
 ### Database
