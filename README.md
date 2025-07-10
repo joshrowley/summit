@@ -1,5 +1,11 @@
 # Summit
 
+> **AI-Driven Development**
+>
+> This project is built as an experiment in AI-first software development. All issues, pull requests, and code changes are managed and updated using AI tools such as Cursor AI and others. The goal is to build my own personal toolbelt, focusing on rapid iteration and learning by prompting and collaborating with AI. This approach allows for fast prototyping, continuous improvement, and hands-on experience with modern AI-driven workflows.
+> 
+> While some changes may be tweaked by hand, the default action is to try to solve each problem at hand using an AI agent.
+
 A personal compass for life - track your health, habits, and happiness with clarity.
 
 ## Overview
