@@ -28,14 +28,14 @@ class AuthenticationTest < ApplicationSystemTestCase
     visit root_path
     click_link "Sign up"
 
-    expect(page).to have_selector("input[name='email']")
+    assert_selector "input[name='email']"
     fill_in "Email", with: @unauthorized_email
     fill_in "Password", with: @password
     fill_in "Password confirmation", with: @password
     click_button "Sign up"
 
-    expect(page).to have_text("Email is not authorized to sign up")
-    expect(page).not_to have_text("Welcome, #{@unauthorized_email}")
+    assert_text "Email is not authorized to sign up"
+    assert_no_text "Welcome, #{@unauthorized_email}"
   end
 
   test "user can sign in and sign out" do
