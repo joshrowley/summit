@@ -11,13 +11,12 @@ importers:
       '@tailwindcss/cli':
         specifier: ^4.1.4
         version: 4.1.11
-      esbuild:
-        specifier: ^0.25.3
-        version: 0.25.5
-    devDependencies:
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
+      esbuild:
+        specifier: ^0.25.3
+        version: 0.25.5
       postcss:
         specifier: ^8.5.3
         version: 8.5.6
