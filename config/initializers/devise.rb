@@ -37,6 +37,9 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require "devise/orm/active_record"
+  require File.expand_path(Rails.root.join('lib/omniauth/strategies/foursquare'))
+  puts ">>> Required custom Foursquare strategy"
+  Rails.logger.info "Loaded OmniAuth strategies: #{OmniAuth.strategies.map(&:to_s)}"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -272,6 +275,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :foursquare, ENV['FOURSQUARE_CLIENT_ID'], ENV['FOURSQUARE_CLIENT_SECRET'],
+    scope: 'checkins',
+    redirect_uri: ENV['FOURSQUARE_REDIRECT_URI'],
+    strategy_class: OmniAuth::Strategies::Foursquare
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
