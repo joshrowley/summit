@@ -1,10 +1,6 @@
 # Summit
 
-> **AI-Driven Development**
->
-> This project is built as an experiment in AI-first software development. All issues, pull requests, and code changes are managed and updated using AI tools such as Cursor AI and others. The goal is to build my own personal toolbelt, focusing on rapid iteration and learning by prompting and collaborating with AI. This approach allows for fast prototyping, continuous improvement, and hands-on experience with modern AI-driven workflows.
-> 
-> While some changes may be tweaked by hand, the default action is to try to solve each problem at hand using an AI agent.
+![Badge showing that this repository uses CodeRabbit for PR reviews](https://img.shields.io/coderabbit/prs/github/joshrowley/summit?utm_source=oss&utm_medium=github&utm_campaign=joshrowley%2Fsummit&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 A personal compass for life - track your health, habits, and happiness with clarity.
 
@@ -128,7 +124,17 @@ The application uses Devise for user authentication with the following features:
 - Remember me functionality
 - Secure password hashing with bcrypt
 
-**Note**: Registration is restricted to the email address specified in the `AUTHORIZED_EMAIL` environment variable. If not set, it defaults to `authorized@example.com`.
+## Registration Restrictions
+
+Registration is restricted to a specific email address for security purposes. You must set the `AUTHORIZED_EMAIL` environment variable to your authorized email address. If not set, it defaults to `authorized@example.com`.
+
+To set the authorized email, use:
+
+```bash
+export AUTHORIZED_EMAIL="your@email.com"
+```
+
+You can add this to your shell profile or a `.env` file if using a tool like dotenv. Only users with the authorized email will be able to register for an account.
 
 ## Project Structure
 
@@ -155,6 +161,12 @@ test/
 ├── system/              # System tests
 └── controllers/         # Controller tests
 ```
+
+## AI-Driven Development Workflow
+
+This project is built as an experiment in AI-first software development. All issues, pull requests, and code changes are managed and updated using AI tools such as Cursor AI and others. The goal is to build my own personal toolbelt, focusing on rapid iteration and learning by prompting and collaborating with AI. This approach allows for fast prototyping, continuous improvement, and hands-on experience with modern AI-driven workflows.
+
+While some changes may be tweaked by hand, the default action is to try to solve each problem at hand using an AI agent.
 
 ## Deployment
 
