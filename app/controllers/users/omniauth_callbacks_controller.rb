@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_action :verify_authenticity_token, only: [:foursquare, :failure]
+  skip_before_action :verify_authenticity_token
 
   def foursquare
     auth = request.env["omniauth.auth"]
