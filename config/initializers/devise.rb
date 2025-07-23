@@ -38,8 +38,6 @@ Devise.setup do |config|
   # available as additional gems.
   require "devise/orm/active_record"
   require File.expand_path(Rails.root.join("lib/omniauth/strategies/foursquare"))
-  puts ">>> Required custom Foursquare strategy"
-  Rails.logger.info "Loaded OmniAuth strategies: #{OmniAuth.strategies.map(&:to_s)}"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

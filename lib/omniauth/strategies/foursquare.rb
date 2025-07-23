@@ -1,4 +1,3 @@
-puts ">>> Loaded custom OmniAuth::Strategies::Foursquare"
 require "omniauth-oauth2"
 
 module OmniAuth
